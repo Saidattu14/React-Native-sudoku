@@ -2,7 +2,6 @@
 //this function iterates each elements in the sudoku.
 function isValid1(mat)
 {
-    
     for(let i = 0; i<=8; i++)
     {
         for(let k = 0; k<=8; k++)
@@ -149,7 +148,6 @@ function isValid1(mat)
     }    
 return 1;    
 }
-
 //This function takes the x and y coordinate data and look up possible numbers to fill in that x and y coordinates.
 function sudoku_chk(mat,first,second)
 {
@@ -254,7 +252,6 @@ function sudoku_chk(mat,first,second)
     }
     return arr;
 }
-
 //This function check particular box elements with row and column elements.
 //This function does not check for the entire sudoku.
 function isValid(mat,first,second)
@@ -339,9 +336,7 @@ function isValid(mat,first,second)
         }
     }
     else if(x === 2 && y === 1)
-    {
-      
-        
+    {       
         if(a == mat[first-1][second-1] || a == mat[first-2][second-1] || a == mat[first-1][second+1] || a == mat[first-2][second+1])
         {
             
@@ -408,7 +403,6 @@ function large_rows_columns(mat)
   }
   return list;
 }
-
 //Takes start time and end time to complete the sudoku and estimates the depth count of represents as the sudoku metrics.
 function  level_classification(matrix,starttime,endtime)
 {
@@ -467,7 +461,6 @@ function print(mat)
 //Iterates through the list and with possible pay load elements and stores the last index.
 //If there is no possible sudoku with payload values it back tracks with loop decrement and start at last index.
 //Thus it iterates through all the list elements to fill.
-
 var solver = function sudoku_solver(input) {
 var mat =  [
   [0,0,0,0,0,0,0,0,0],
@@ -554,6 +547,4 @@ let obj1 = {
 // console.log(isValid1(mat))
 return obj1;
 }
-module.exports = solver; 
-
-
+module.exports = solver; U
