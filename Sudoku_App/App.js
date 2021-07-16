@@ -5,17 +5,15 @@ import { SafeAreaView,
   View,
   Text,
   TextInput,
-  Button,Alert, } from 'react-native';
+  Button,Alert, 
+ } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import App_data from './Components/Main';
 import Home from './Components/Home';
 import Swiper_Page from './Components/Swiper';
 import Success_Page from './Components/Sucess_page';
-
 const Stack = createStackNavigator();
-
-
 //This is the starting point of the application.
 // Here a Context Navigator is created and assigned screen names to navigate to other screens.
 const App = ({navigation}) => {
@@ -70,10 +68,8 @@ const App = ({navigation}) => {
             headerTitleStyle: {
               fontWeight: 'bold', 
             },
-            alignItems: 'center',
-            
+            alignItems: 'center', 
           }}
-          
         />
         <Stack.Screen
           name="FourthPage"
