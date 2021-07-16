@@ -1,6 +1,6 @@
 //This function stores the initial sudoku 
 export function sudoku_restart(input)
-{   
+{ 
     var b= [
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0],
@@ -19,5 +19,5 @@ export function sudoku_restart(input)
             b[i][j] = input[i][j]
         }
     }
-    return b;
+  return b;
 } 
