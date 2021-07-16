@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-
  import React, { Component, useDebugValue } from 'react';
  import 'react-native-gesture-handler';
  import { NavigationContainer } from '@react-navigation/native';
@@ -36,8 +35,6 @@
    ReloadInstructions,
  } from 'react-native/Libraries/NewAppScreen';
 
-
- 
  //This component is responsible to call sudoku functions and manipuate the user inputs.
  class App_data extends Component {
    
@@ -94,7 +91,6 @@
       
           }
         ],
-        
       );
       //This function is to alert the user to show the solution for the sudoku.
       SolutionAlert = () =>
@@ -131,7 +127,6 @@
             text: "Yes",
             onPress: () => {this.Restart()},
             style: "yes",
-      
           }
         ],
         
@@ -148,7 +143,6 @@
       }
  //This function sets the current sudoku cell updates with user data and if fill all cell with correct it navigates to success page.
    Inputing_data = (text,index,cellIndex) => {
-    
      if(text !== "Give_up")
      {
       this.state.tableData[index][cellIndex] = parseInt(text)
@@ -271,7 +265,6 @@
                      {
                       if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
                      {
-                     
                      return (
                      <TextInput style = {styles.input}
                      placeholderTextColor = 'black'
@@ -337,7 +330,6 @@
    text: { textAlign: 'center' },
    text_load : { textAlign : 'center', color : 'green',fontSize : 25},
    input : { textAlign: 'center' },
-
  });
  export default App_data;
  
