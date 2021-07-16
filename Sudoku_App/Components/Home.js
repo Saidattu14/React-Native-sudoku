@@ -8,7 +8,6 @@ import {
   Button,
 } from 'react-native';
 //This screen allows user to create a username to play to sudoku.
-
 const Home = ({navigation}) => {
   const [userName, setUserName] = useState('');
   return (
