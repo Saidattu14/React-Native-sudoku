@@ -1,7 +1,6 @@
 //Takes the sudoku and create a new array by locking the elements in the sudoku
 export function sudoku_number_locker(input)
 {
-    
     var a = input
     var b= [
         [0,0,0,0,0,0,0,0,0],
