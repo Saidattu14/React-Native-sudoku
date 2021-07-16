@@ -16,7 +16,6 @@ function isValid1(mat)
             }
         }
     }
-
     for(let i = 0; i<=8; i++)
     {
     
@@ -454,8 +453,6 @@ function print(mat)
     console.log(a)
   }
 }
-
-
 //Takes to sudoku and divde the sudoku into a list of elements to fill.
 //The list list elements has the payload with possible values of the elements to fill.
 //Iterates through the list and with possible pay load elements and stores the last index.
