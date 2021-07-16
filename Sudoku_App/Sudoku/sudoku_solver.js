@@ -544,4 +544,4 @@ let obj1 = {
 // console.log(isValid1(mat))
 return obj1;
 }
-module.exports = solver; U
+module.exports = solver;
