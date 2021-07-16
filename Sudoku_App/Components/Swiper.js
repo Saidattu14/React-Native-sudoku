@@ -26,21 +26,18 @@ const Swiper_Page = ({route,navigation}) =>
             <Text onPress = {() => navigation.navigate('ThirdPage', {
               paramKey: paramKey,
               level : "Easy",
-
             })} style={styles.text}>Easy</Text>
           </View>
           <View testID="Beautiful" style={styles.slide1}>
             <Text onPress = {() => navigation.navigate('ThirdPage',{
               paramKey: paramKey,
               level : "Medium",
-
             })} style={styles.text}>Medium</Text>
           </View>
           <View testID="Simple" style={styles.slide1}>
             <Text onPress = {() => navigation.navigate('ThirdPage',{
               paramKey: paramKey,
               level : "Hard",
-
             }
             )} style={styles.text}>Hard</Text>
           </View>
