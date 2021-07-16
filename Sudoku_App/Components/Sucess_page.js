@@ -5,8 +5,6 @@ import {
   View,
   Text,
 } from 'react-native';
-
-
 //This screen is to congratulates the user for successfully solving the sudoku
 const Success_Page = ({route,navigation}) => {
   const {username} = route.params;
