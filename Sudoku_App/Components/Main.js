@@ -5,6 +5,7 @@
  * @format
  * @flow strict-local
  */
+
  import React, { Component, useDebugValue } from 'react';
  import 'react-native-gesture-handler';
  import { NavigationContainer } from '@react-navigation/native';
@@ -35,7 +36,8 @@
    ReloadInstructions,
  } from 'react-native/Libraries/NewAppScreen';
 
- //This component is responsible to call sudoku functions and manipuate the user inputs.
+
+//This component is responsible to call sudoku functions and manipuate the user inputs.
  class App_data extends Component {
    
    constructor(props) {
@@ -91,6 +93,7 @@
       
           }
         ],
+        
       );
       //This function is to alert the user to show the solution for the sudoku.
       SolutionAlert = () =>
@@ -127,6 +130,7 @@
             text: "Yes",
             onPress: () => {this.Restart()},
             style: "yes",
+      
           }
         ],
         
@@ -143,6 +147,7 @@
       }
  //This function sets the current sudoku cell updates with user data and if fill all cell with correct it navigates to success page.
    Inputing_data = (text,index,cellIndex) => {
+    
      if(text !== "Give_up")
      {
       this.state.tableData[index][cellIndex] = parseInt(text)
@@ -198,16 +203,19 @@
                    {
                     
                      rowData.map((cellData, cellIndex) => {
-                     if(index%3 == 2 && cellIndex%3 != 2)
+                     if(index == 0)
+                     {
+
+                     if(cellIndex == 0)
                      {
                       if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
                       {
                       
                       return (
                       <TextInput style = {styles.input}
-                      placeholderTextColor = 'black'
+                      placeholderTextColor = 'green'
                       key = {cellIndex}
-                      style={styles.cell_index1}
+                      style={styles.cell_index10}
                       placeholder = {String(this.state.tableData[index][cellIndex])}
                       onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
                       >
@@ -216,19 +224,19 @@
                       else
                       {
                       return (
-                        <Cell key={cellIndex} data={cellData}  style={styles.cell_index11}/>
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index101}/>
                       )}
                      }
-                     else if(cellIndex%3 == 2 && index%3 != 2)
+                     else if(cellIndex%3 == 2)
                      {
                       if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
                       {
                       
                       return (
                       <TextInput style = {styles.input}
-                      placeholderTextColor = 'black'
+                      placeholderTextColor = 'green'
                       key = {cellIndex}
-                      style={styles.cell_index2}
+                      style={styles.cell_index12}
                       placeholder = {String(this.state.tableData[index][cellIndex])}
                       onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
                       >
@@ -237,50 +245,179 @@
                       else
                       {
                       return (
-                        <Cell key={cellIndex} data={cellData}  style={styles.cell_index22}/>
-                      )}
-                     }
-                     else if(cellIndex%3 === 2 && index%3 === 2)
-                     {
-                      if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
-                      {
-                      
-                      return (
-                      <TextInput style = {styles.input}
-                      placeholderTextColor = 'black'
-                      key = {cellIndex}
-                      style={styles.cell_index3}
-                      placeholder = {String(this.state.tableData[index][cellIndex])}
-                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
-                      >
-                      </TextInput>
-                      ) }
-                      else
-                      {
-                      return (
-                        <Cell key={cellIndex} data={cellData}  style={styles.cell_index33}/>
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index102}/>
                       )}
                      }
                      else
                      {
                       if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
+                      {
+                      
+                      return (
+                      <TextInput style = {styles.input}
+                      placeholderTextColor = 'green'
+                      key = {cellIndex}
+                      style={styles.cell_index0}
+                      placeholder = {String(this.state.tableData[index][cellIndex])}
+                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
+                      >
+                      </TextInput>
+                      ) }
+                      else
+                      {
+                      return (
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index00}/>
+                      )}
+                     }
+                    }
+
+                    else if(index%3 == 2)
                      {
-                     return (
-                     <TextInput style = {styles.input}
-                     placeholderTextColor = 'black'
-                     key = {cellIndex}
-                     style={styles.cell1}
-                     placeholder = {String(this.state.tableData[index][cellIndex])}
-                     onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
-                     >
-                     </TextInput>
-                     )}
+                    
+                     if(cellIndex == 0)
+                     {
+                      if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
+                      {
+                      
+                      return (
+                      <TextInput style = {styles.input}
+                      placeholderTextColor = 'green'
+                      key = {cellIndex}
+                      style={styles.cell_index_20}
+                      placeholder = {String(this.state.tableData[index][cellIndex])}
+                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
+                      >
+                      </TextInput>
+                      ) }
+                      else
+                      {
+                      return (
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index_200}/>
+                      )}
+                     }
+                     else if(cellIndex%3 == 2)
+                     {
+                      if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
+                      {
+                      
+                      return (
+                      <TextInput style = {styles.input}
+                      placeholderTextColor = 'green'
+                      key = {cellIndex}
+                      style={styles.cell_index_22}
+                      placeholder = {String(this.state.tableData[index][cellIndex])}
+                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
+                      >
+                      </TextInput>
+                      ) }
+                      else
+                      {
+                      return (
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index_222}/>
+                      )}
+                     }
                      else
                      {
-                     return (
-                       <Cell key={cellIndex} data={cellData}  style={styles.cell}/>
-                     )}
+                      if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
+                      {
+                      
+                      return (
+                      <TextInput style = {styles.input}
+                      placeholderTextColor = 'green'
+                      key = {cellIndex}
+                      style={styles.cell_index_23}
+                      placeholder = {String(this.state.tableData[index][cellIndex])}
+                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
+                      >
+                      </TextInput>
+                      ) }
+                      else
+                      {
+                      return (
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index_223}/>
+                      )}
                      }
+                    }
+
+
+
+
+
+
+
+
+
+
+
+                     else
+                     {
+                       
+                     if(cellIndex == 0)
+                     {
+                      if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
+                      {
+                      
+                      return (
+                      <TextInput style = {styles.input}
+                      placeholderTextColor = 'green'
+                      key = {cellIndex}
+                      style={styles.cell_index_0}
+                      placeholder = {String(this.state.tableData[index][cellIndex])}
+                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
+                      >
+                      </TextInput>
+                      ) }
+                      else
+                      {
+                      return (
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index_00}/>
+                      )}
+                     }
+                     else if(cellIndex%3 == 2)
+                     {
+                      if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
+                      {
+                      
+                      return (
+                      <TextInput style = {styles.input}
+                      placeholderTextColor = 'green'
+                      key = {cellIndex}
+                      style={styles.cell_index_12}
+                      placeholder = {String(this.state.tableData[index][cellIndex])}
+                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
+                      >
+                      </TextInput>
+                      ) }
+                      else
+                      {
+                      return (
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index_102}/>
+                      )}
+                     }
+                     else
+                     {
+                      if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
+                      {
+                      
+                      return (
+                      <TextInput style = {styles.input}
+                      placeholderTextColor = 'green'
+                      key = {cellIndex}
+                      style={styles.cell_index_13}
+                      placeholder = {String(this.state.tableData[index][cellIndex])}
+                      onChangeText={(e) => this.Inputing_data(e,index,cellIndex)}
+                      >
+                      </TextInput>
+                      ) }
+                      else
+                      {
+                      return (
+                        <Cell key={cellIndex} data={cellData} textStyle={styles.text} style={styles.cell_index_103}/>
+                      )}
+                     }
+                    }
+                     
+                   
                    })
                    }
                  </TableWrapper>)
@@ -318,18 +455,33 @@
  //Css data for rendering
  const styles = StyleSheet.create({
    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff',justifyContent: 'space-between', },
-   wrapper: { flexDirection: 'row',borderTopWidth:0.5},
+   wrapper: { flexDirection: 'row'},
    cell1 : {height :36, width : 36, borderWidth : 0.5,textAlign :'center'},
-   cell : {height :36, width : 36,borderWidth : 0.5, alignItems : 'center',backgroundColor:'#f4511e'},
-   cell_index1 : {height :36, width : 36,borderRightWidth : 2,borderLeftWidth : 0.5,borderBottomWidth: 0.5, textAlign :'center'},
-   cell_index11 : {height :36, width : 36,borderRightWidth : 2,borderLeftWidth : 0.5,borderBottomWidth: 0.5, alignItems : 'center',backgroundColor:'#f4511e'},
-   cell_index2 : {height :36, width : 36,borderBottomWidth:2,borderRightWidth:0.5,borderLeftWidth : 0.5,textAlign :'center'},
-   cell_index22 : {height :36, width : 36,borderBottomWidth:2,borderRightWidth:0.5,borderLeftWidth : 0.5,alignItems : 'center',backgroundColor:'#f4511e' },
-   cell_index3 : {height :36, width : 36,borderRightWidth: 2, borderBottomWidth: 2,textAlign :'center'},
-   cell_index33 : {height :36, width : 36,borderRightWidth: 2, borderBottomWidth: 2,alignItems : 'center',backgroundColor:'#f4511e'},
-   text: { textAlign: 'center' },
+   cell : {height :36, width : 36,borderWidth : 0.5, alignItems : 'center',},
+   cell_index1 : {height :36, width : 36,borderBottomWidth: 0.5,borderRightWidth:0.25,borderLeftWidth : 2,textAlign :'center'},
+   cell_index11 : {height :36, width : 36,borderBottomWidth: 0.5,borderRightWidth:0.25,alignItems : 'center',borderLeftWidth : 2,},
+   cell_index10 : {height :36, width : 36,borderBottomWidth: 0.5,borderRightWidth:0.25,borderLeftWidth : 2,borderTopWidth:2,textAlign :'center'},
+   cell_index101 : {height :36, width : 36,borderBottomWidth: 0.5,borderRightWidth:0.25,alignItems : 'center',borderTopWidth:2,borderLeftWidth : 2,},
+   cell_index12 : {height :36, width : 36,borderLeftWidth : 2,borderRightWidth:0.25,borderBottomWidth:2,textAlign :'center'},
+   cell_index102 : {height :36, width : 36,alignItems : 'center',borderRightWidth:0.25,borderBottomWidth: 2,borderLeftWidth : 2,},
+   cell_index0 : {height :36, width : 36,borderBottomWidth:0.5,borderRightWidth:0.25,borderLeftWidth:2,textAlign :'center'},
+   cell_index00 : {height :36, width : 36,borderBottomWidth:0.5,borderRightWidth:0.25,borderLeftWidth:2,alignItems : 'center',},
+   cell_index_0 : {height :36, width : 36,borderTopWidth: 2,borderRightWidth:0.25,borderBottomWidth: 0.5,textAlign :'center'},
+   cell_index_00 : {height :36, width : 36,borderTopWidth:2,borderRightWidth:0.25,borderBottomWidth: 0.5,alignItems : 'center',},
+   cell_index_12 : {height :36, width : 36,borderBottomWidth: 2,borderRightWidth:0.25,textAlign :'center'},
+   cell_index_102 : {height :36, width : 36,borderBottomWidth:2,borderRightWidth:0.25,alignItems : 'center',},
+   cell_index_13 : {height :36, width : 36,borderBottomWidth: 0.5,borderRightWidth:0.25,textAlign :'center'},
+   cell_index_103 : {height :36, width : 36,borderBottomWidth:0.5,borderRightWidth:0.25,alignItems : 'center',},
+   cell_index_20 : {height :36, width : 36,borderTopWidth: 2,borderRightWidth:0.25,borderBottomWidth: 0.5,borderRightWidth:2,textAlign :'center'},
+   cell_index_200 : {height :36, width : 36,borderTopWidth:2,borderRightWidth:0.25,borderBottomWidth: 0.5,borderRightWidth:2,alignItems : 'center',},
+   cell_index_22 : {height :36, width : 36,borderBottomWidth: 2,borderRightWidth:0.25,borderRightWidth:2,textAlign :'center'},
+   cell_index_222 : {height :36, width : 36,borderBottomWidth:2,borderRightWidth:0.25,borderRightWidth:2,alignItems : 'center',},
+   cell_index_23 : {height :36, width : 36,borderBottomWidth: 0.5,borderRightWidth:0.25,borderRightWidth:2,textAlign :'center'},
+   cell_index_223 : {height :36, width : 36,borderBottomWidth:0.5,borderRightWidth:0.25,borderRightWidth:2,alignItems : 'center',},
+   text: { textAlign: 'center',color : 'red' },
    text_load : { textAlign : 'center', color : 'green',fontSize : 25},
    input : { textAlign: 'center' },
+
  });
  export default App_data;
  
