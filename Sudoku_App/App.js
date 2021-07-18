@@ -5,15 +5,17 @@ import { SafeAreaView,
   View,
   Text,
   TextInput,
-  Button,Alert, 
- } from 'react-native';
+  Button,Alert, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import App_data from './Components/Main';
 import Home from './Components/Home';
 import Swiper_Page from './Components/Swiper';
 import Success_Page from './Components/Sucess_page';
+
 const Stack = createStackNavigator();
+
+
 //This is the starting point of the application.
 // Here a Context Navigator is created and assigned screen names to navigate to other screens.
 const App = ({navigation}) => {
@@ -26,7 +28,7 @@ const App = ({navigation}) => {
           options={{
             title: 'Welcome to Sudoku', 
             headerStyle: {
-              backgroundColor: '#f4511e',
+              backgroundColor: '#f194ff',
             },
             headerTintColor: '#fff', 
             headerTitleStyle: {
@@ -44,7 +46,7 @@ const App = ({navigation}) => {
             },
             title: 'Choose Difficulty',
             headerStyle: {
-              backgroundColor: '#f4511e',
+              backgroundColor: '#f194ff',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -62,14 +64,16 @@ const App = ({navigation}) => {
             },
             title: 'Sudoku', 
             headerStyle: {
-              backgroundColor: '#f4511e', 
+              backgroundColor: "#f194ff", 
             },
             headerTintColor: '#fff', 
             headerTitleStyle: {
               fontWeight: 'bold', 
             },
-            alignItems: 'center', 
+            alignItems: 'center',
+            
           }}
+          
         />
         <Stack.Screen
           name="FourthPage"
