@@ -20,11 +20,12 @@ const Home = ({navigation}) => {
           value={userName}
           onChangeText={(username) => setUserName(username)}
           style={styles.inputStyle}
+          color = 'black'
         />
         <Button
           title="Play"
           //Button Title
-          backgroundColor = '#f4511e'
+          color = '#f194ff'
           onPress={() =>
             navigation.navigate('SecondPage', {
               paramKey: userName,
