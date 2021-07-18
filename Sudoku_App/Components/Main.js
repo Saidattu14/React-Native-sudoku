@@ -57,11 +57,11 @@
     this.state.userName = '';
     this.props.navigation.setOptions({
        headerRight: () => (
-              <Button
-              onPress={this.showAlert}
-              title="NewGame"
-              color = "grey"
-            />
+              <View>
+                <Text style = {styles.header_right}>
+                  {props.route.params.paramKey}
+                </Text>
+              </View>
             ),
      })
   }
@@ -273,7 +273,6 @@
 
                     else if(index%3 == 2)
                      {
-                    
                      if(cellIndex == 0)
                      {
                       if(cellData === 0 || this.state.no_change_data[index][cellIndex] == 0)
@@ -338,17 +337,6 @@
                       )}
                      }
                     }
-
-
-
-
-
-
-
-
-
-
-
                      else
                      {
                        
@@ -416,8 +404,6 @@
                       )}
                      }
                     }
-                     
-                   
                    })
                    }
                  </TableWrapper>)
@@ -425,18 +411,32 @@
              }
              </TableWrapper>
          </Table>
+         <SafeAreaView style = {styles.btn_wrapper}>
+         <View style={styles.button}>
          <Button
           onPress={this.SolutionAlert}
           title="Check Solution"
-          color="#841584"
+          color="#f194ff"
           accessibilityLabel="Understand the solution"
           />
+         </View>
+         <View style={styles.button}>
           <Button
           onPress={this.RestartAlert}
           title="Restart"
-          color="#841584"
+          color= "#f194ff"
           accessibilityLabel="Restart Game"
           />
+         </View>
+         <View style={styles.button}>
+          <Button
+          onPress={this.showAlert}
+          title="NewGame"
+          color= "#f194ff"
+          accessibilityLabel="NewGame Game"
+          />
+         </View>
+         </SafeAreaView>
        </View>
    );
   }
@@ -454,8 +454,8 @@
  };
  //Css data for rendering
  const styles = StyleSheet.create({
-   container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff',justifyContent: 'space-between', },
-   wrapper: { flexDirection: 'row'},
+   container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff', },
+   wrapper: { flexDirection: 'row',justifyContent: 'space-between',},
    cell1 : {height :36, width : 36, borderWidth : 0.5,textAlign :'center'},
    cell : {height :36, width : 36,borderWidth : 0.5, alignItems : 'center',},
    cell_index1 : {height :36, width : 36,borderBottomWidth: 0.5,borderRightWidth:0.25,borderLeftWidth : 2,textAlign :'center'},
@@ -481,6 +481,9 @@
    text: { textAlign: 'center',color : 'red' },
    text_load : { textAlign : 'center', color : 'green',fontSize : 25},
    input : { textAlign: 'center' },
+   button : {paddingLeft: 20,paddingRight: 20,marginVertical: 10,justifyContent : 'space-between'},
+   btn_wrapper : {marginVertical : 30},
+   header_right :{fontWeight: 'bold',fontSize : 20, color: 'white',paddingLeft: 10,paddingRight: 10,},
 
  });
  export default App_data;
