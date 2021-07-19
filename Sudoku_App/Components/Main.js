@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
- import React, { Component, useDebugValue } from 'react';
+ import React, { Component, useDebugValue, useState, useEffect } from 'react';
  import 'react-native-gesture-handler';
  import { NavigationContainer } from '@react-navigation/native';
  import { createStackNavigator } from '@react-navigation/stack';
@@ -51,6 +51,10 @@
      this.state = {
        tableData : this.Dataloading(this.state.level), 
      },
+    this.state.start = 0
+    this.state.timer = 0
+    this.state.start_timer = 0
+    this.state.time_details = "00:00"
     this.state.previous = []
     this.state.no_change_data = []
     this.state.result = []
@@ -65,6 +69,11 @@
             ),
      })
   }
+  
+  
+
+
+
   //This function fetches the sudoku data like sudoku input, sudoku output, sudoku locking variables, sudoku restart data.
     Dataloading = (level) => {
       setTimeout (() => {
@@ -73,8 +82,78 @@
         this.setState({no_change_data : sudoku_number_locker(this.state.tableData)})
         this.setState({previous : sudoku_restart(this.state.tableData)});
         this.setState({result : solver(this.state.tableData).result});
+        this.setState({start : 1})
+        this.setState({start_timer : (new Date()).getTime()})
+
+        
       },1000);
     }
+   
+   
+    componentDidUpdate() {
+      if(this.state.start == 1)
+        {
+          setTimeout(() => {
+            timer_data = (new Date()).getTime();
+            timer = Math.floor(((timer_data-this.state.start_timer)/1000))
+            var minutes = Math.floor(timer/60);
+            if(timer >= 3600)
+            {
+              this.setState({time_details : timer});
+            }
+            else if(timer >= 3600*60)
+            {
+              this.setState({time_details : timer});
+            }
+            else if(timer > 60)
+            {
+              
+              if(minutes < 10)
+              {
+                minutes = "00:0" + String(minutes) 
+              }
+              else
+              {
+                minutes = "00:" + String(minutes) 
+              }
+              this.setState({time_details : minutes})
+
+            }
+            else if(timer >= 0)
+            {
+              if(minutes < 10)
+              {
+                minutes = "00:0" + String(minutes) 
+              }
+              else
+              {
+                minutes = "00:" + String(minutes) 
+              }
+              
+              this.setState({time_details : minutes})
+
+            }
+
+
+          }, 1000);
+
+        }
+
+     
+    }
+
+
+
+    // Time_change = () => {
+    //   if(this.state.start == 1)
+    //   {
+    //     setTimeout (() => {
+    //       this.setState({timer : this.state.timer + 1})
+    //       this.Time_change();
+    //     },1000);
+
+    //   }
+    // }
     //This function is to alert the user to start a new game and go back to the select difficulty page.
     showAlert = () =>
       Alert.alert(
@@ -194,6 +273,11 @@
    {
    return (
      <View style={styles.container}>
+         <View style = {styles.timer}>
+           <Text>
+             {this.state.time_details}
+           </Text>
+         </View>
          <Table >
          <TableWrapper style={styles.view} style={styles.wrapper}>
              {
@@ -484,6 +568,7 @@
    button : {paddingLeft: 20,paddingRight: 20,marginVertical: 10,justifyContent : 'space-between'},
    btn_wrapper : {marginVertical : 30},
    header_right :{fontWeight: 'bold',fontSize : 20, color: 'white',paddingLeft: 10,paddingRight: 10,},
+   timer : {alignItems : 'center',marginVertical : 10}
 
  });
  export default App_data;
