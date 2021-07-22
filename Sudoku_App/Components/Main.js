@@ -99,11 +99,32 @@
             var minutes = Math.floor(timer/60);
             if(timer >= 3600)
             {
-              this.setState({time_details : timer});
-            }
-            else if(timer >= 3600*60)
-            {
-              this.setState({time_details : timer});
+              let hrs = Math.floor(timer/3600);
+              let mints = Math.floor((timer%3600)/60);
+              if(mints < 10)
+              {
+                if(hrs < 10)
+                {
+                  minutes = "0" + String(hrs) + ":0" + String(mints) 
+                }
+                else
+                {
+                  minutes = String(hrs) + ":0" + String(mints) 
+                }
+              }
+              else
+              {
+                if(hrs < 10)
+                {
+                  minutes = "0" + String(hrs) + ":0" + String(mints) 
+                }
+                else
+                {
+                  minutes = String(hrs) + ":0" + String(mints) 
+                }
+              }
+              this.setState({time_details : minutes})
+
             }
             else if(timer > 60)
             {
@@ -143,17 +164,6 @@
     }
 
 
-
-    // Time_change = () => {
-    //   if(this.state.start == 1)
-    //   {
-    //     setTimeout (() => {
-    //       this.setState({timer : this.state.timer + 1})
-    //       this.Time_change();
-    //     },1000);
-
-    //   }
-    // }
     //This function is to alert the user to start a new game and go back to the select difficulty page.
     showAlert = () =>
       Alert.alert(
