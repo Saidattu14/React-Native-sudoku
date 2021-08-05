@@ -81,12 +81,42 @@
         this.setState({previous : sudoku_restart(this.state.tableData)});
         this.setState({result : solver(this.state.tableData).result});
         this.setState({no_change_data : sudoku_number_locker(this.state.tableData)})
-        this.setState({start : 1})
         this.setState({start_timer : (new Date()).getTime()})
+        this.setState({loading : 0})
+        this.setState({start : false})
+        
+        
       },1000);
     }
   }
-  Timer_function()
+  componentDidMount()
+  {
+    this.state.start = true
+  }
+  
+  
+    componentDidUpdate() {
+      if(this.state.start == 1)
+      {
+       this.tt = setTimeout(() => {
+        this.Timer_function();
+      }, 1000);
+      }
+    }
+    componentWillUnmount()
+    {
+
+      
+      
+      this.state.start = true
+      clearTimeout(this.tt)
+      clearTimeout(this.tt1)
+      clearTimeout(this.tt2)
+      
+      
+      
+    }
+    Timer_function()
   {
     timer_data = (new Date()).getTime();
     timer = Math.floor(((timer_data-this.state.start_timer)/1000))
@@ -149,26 +179,6 @@
 
     }
   }
-  
-    componentDidUpdate() {
-      if(this.state.start == 1)
-      {
-       this.tt = setTimeout(() => {
-        this.Timer_function();
-      }, 1000);
-      }
-    }
-    componentWillUnmount()
-    {
-      clearTimeout(this.tt1)
-      clearTimeout(this.tt)
-      clearTimeout(this.tt2)
-      this.setState({start : undefined})
-      this.setState({time_details : undefined})
-      this.setState({no_change_data : undefined})
-      this.setState({tableData : undefined})
-      this.setState({loading : undefined})
-    }
      //This function is to alert the user to show the solution for the sudoku.
      SolutionAlert = () =>
      Alert.alert(
@@ -187,29 +197,29 @@
      
          }
        ],
+     );
+
+     //This function is to alert the user to start a restart of the game.
+     RestartAlert = () =>
+     Alert.alert(
+       "Warnings",
+       "Do you want to Restart Game",
+       [
+         {
+           text: "Cancel",
+           onPress:  () => console.log('Cancel Pressed'),
+           style: "cancel",
+         },
+         {
+           text: "Yes",
+           onPress: () => {this.Restart()},
+           style: "yes",
+     
+         }
+       ],
        
      );
-      //This function is to alert the user to start a restart of the game.
-      RestartAlert = () =>
-      Alert.alert(
-        "Warnings",
-        "Do you want to Restart Game",
-        [
-          {
-            text: "Cancel",
-            onPress:  () => console.log('Cancel Pressed'),
-            style: "cancel",
-          },
-          {
-            text: "Yes",
-            onPress: () => {this.Restart()},
-            style: "yes",
-      
-          }
-        ],
-        
-      );
-      //This function is to alert the user to start a new game and go back to the select difficulty page.
+     //This function is to alert the user to start a new game and go back to the select difficulty page.
     showAlert = () =>
     Alert.alert(
       "Warning",
@@ -239,50 +249,49 @@
         });
 
       }
- //This function sets the current sudoku cell updates with user data and if fill all cell with correct it navigates to success page.
+
+      //This function sets the current sudoku cell updates with user data and if fill all cell with correct it navigates to success page.
    Inputing_data = (text,index,cellIndex) => {
     
-     if(text !== "Give_up")
-     {
-      this.state.tableData[index][cellIndex] = parseInt(text)
+    if(text !== "Give_up")
+    {
+     this.state.tableData[index][cellIndex] = parseInt(text)
+     this.setState({
+       tableData : this.state.tableData
+     });
+     var count = 0;
+    for(let i = 0; i<=8;i++)
+    {
+      for(let j = 0; j<=8;j ++)
+      {
+       if(this.state.tableData[i][j] !== this.state.result[i][j])
+       {
+        count = count + 1;
+        break;
+       }
+      }
+      if(count >= 1)
+      {
+        break;
+      }
+    }
+    if(count === 0)
+    {
+       this.tt2 = setTimeout(() => {
+         this.props.navigation.navigate('FourthPage',{
+           username: this.state.username,
+         })
+     },1500)
+    }
+    }
+    else
+    {
       this.setState({
-        tableData : this.state.tableData
-      });
-      var count = 0;
-     for(let i = 0; i<=8;i++)
-     {
-       for(let j = 0; j<=8;j ++)
-       {
-        if(this.state.tableData[i][j] !== this.state.result[i][j])
-        {
-         count = count + 1;
-         break;
-        }
-       }
-       if(count >= 1)
-       {
-         break;
-       }
-     }
-     if(count === 0)
-     {
-        this.tt2 = setTimeout( () => {
-          this.props.navigation.navigate('FourthPage',{
-            username: this.state.username,
-          })
-      },1500)
-     }
-     }
-     else
-     {
-       this.setState({
-        tableData : this.state.result
-      });
-     }
-   }
+       tableData : this.state.result
+     });
+    }
+  }
 
-
-    
   //This function allows the things to represent on the screen
   render() {
     const state = this.state;
