@@ -430,6 +430,7 @@ export function sudoku_shuffling(level)
 {
    var res;
    //Until the user input interface it iterates 
+    console.log(level)
    while(true)
    {
     var input = [
@@ -520,7 +521,7 @@ export function sudoku_shuffling(level)
       {
           for(let j =0;j<=8;j++)
           {
-              matrix[i][j] = res.matrix[i][j]
+            matrix[i][j] = res.matrix[i][j]
           }
       }
       matrix = filling_blanks(matrix);

@@ -1,0 +1,46 @@
+{
+  "name": "Sudoku Server",
+  "version": "1.0.0",
+  "description": "Backend Server",
+  "main": "./src/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "./node_modules/nodemon/bin/nodemon.js",
+    "lint": "node ./node_modules/eslint/bin/eslint.js src tests",
+    "start": "node ./src/app.js",
+    "test": "jest --no-colors",
+    "testdev": "jest --watch"
+  },
+  "author": "SD",
+  "engines": {
+    "node": ">=8.9.4"
+  },
+  "dependencies": {
+    "better-config": "^1.2.3",
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "redis": "^3.1.2",
+    "round-to": "^4.0.0",
+    "shortid": "^2.2.14",
+    "uuid": "^8.3.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14"
+  }
+}

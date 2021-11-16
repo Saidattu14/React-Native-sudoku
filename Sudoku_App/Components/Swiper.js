@@ -11,15 +11,19 @@ var styles = {
     backgroundColor: 'white'
   },
   text: {
+<<<<<<< Updated upstream
     color: '#f194ff',
+=======
+    color: "#6A5ACD",
+>>>>>>> Stashed changes
     fontSize: 30,
     fontWeight: 'bold'
   }
 }
 
-const Swiper_Page = ({route,navigation}) =>
+const Swiper_Page = ({navigation}) =>
 {
-  const {paramKey} = route.params;
+  const {paramKey} = "sai";
     return  (
         <Swiper style={styles.wrapper} showsButtons loop={false}>
           <View testID="Hello" style={styles.slide1}>

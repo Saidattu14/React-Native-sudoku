@@ -400,6 +400,8 @@ function large_rows_columns(mat)
       }
     }
   }
+  
+  
   return list;
 }
 //Takes start time and end time to complete the sudoku and estimates the depth count of represents as the sudoku metrics.
@@ -441,6 +443,7 @@ function  level_classification(matrix,starttime,endtime)
   return obj;
 }
 
+<<<<<<< Updated upstream
 function print(mat)
 {
   for(var i = 0; i<=8;i++)
@@ -453,13 +456,29 @@ function print(mat)
     console.log(a)
   }
 }
+=======
+// function print(mat)
+// {
+//   for(var i = 0; i<=8;i++)
+//   {  
+//     var a = '';
+//     for(var j = 0; j<=8;j++)
+//     {
+//      a = a + mat[i][j] + " ";
+//     }
+//     console.log(a)
+//   }
+// }
+
+
+>>>>>>> Stashed changes
 //Takes to sudoku and divde the sudoku into a list of elements to fill.
 //The list list elements has the payload with possible values of the elements to fill.
 //Iterates through the list and with possible pay load elements and stores the last index.
 //If there is no possible sudoku with payload values it back tracks with loop decrement and start at last index.
 //Thus it iterates through all the list elements to fill.
 var solver = function sudoku_solver(input) {
-var mat =  [
+var mat = [
   [0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0],
@@ -496,10 +515,10 @@ var matrix= [
             }
         }
     }
-  
+  var starttime=(new Date()).getTime();
   var list = []
   list = large_rows_columns(mat);
-  var starttime=(new Date()).getTime();
+  
   // var starttime=(new Date()).getTime();
   for(var i = 0; i<list.length;i++)
   {
@@ -541,7 +560,12 @@ let obj1 = {
   result : mat,
   sudoku_metrics : sudoku_metrics
 }
-// console.log(isValid1(mat))
+
 return obj1;
 }
+<<<<<<< Updated upstream
 module.exports = solver;
+=======
+
+module.exports = solver;
+>>>>>>> Stashed changes
