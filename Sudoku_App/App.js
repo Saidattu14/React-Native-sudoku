@@ -42,15 +42,6 @@ const App = ({navigation}) => {
           name="FirstPage"
           component={Home}
           options={{
-<<<<<<< Updated upstream
-            title: 'Welcome to Sudoku', 
-            headerStyle: {
-              backgroundColor: '#f194ff',
-            },
-            headerTintColor: '#fff', 
-            headerTitleStyle: {
-              fontWeight: 'bold',
-=======
             title: null,
             backgroundColor : '#FFFFFF'
           }}
@@ -63,7 +54,6 @@ const App = ({navigation}) => {
             backgroundColor : '#FFFFFF',
             headerLeft: () => {
               return null;
->>>>>>> Stashed changes
             },
           
           }}
@@ -77,11 +67,7 @@ const App = ({navigation}) => {
             },
             title: 'Choose Difficulty',
             headerStyle: {
-<<<<<<< Updated upstream
-              backgroundColor: '#f194ff',
-=======
               backgroundColor : "#6A5ACD",
->>>>>>> Stashed changes
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -101,12 +87,8 @@ const App = ({navigation}) => {
             title: "Sudoku", 
             
             headerStyle: {
-<<<<<<< Updated upstream
-              backgroundColor: "#f194ff", 
-=======
               backgroundColor:  '#FFFFFF',
               height : 60,
->>>>>>> Stashed changes
             },
            
             headerTintColor: "#6A5ACD", 

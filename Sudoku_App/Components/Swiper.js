@@ -11,11 +11,7 @@ var styles = {
     backgroundColor: 'white'
   },
   text: {
-<<<<<<< Updated upstream
-    color: '#f194ff',
-=======
     color: "#6A5ACD",
->>>>>>> Stashed changes
     fontSize: 30,
     fontWeight: 'bold'
   }

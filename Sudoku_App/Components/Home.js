@@ -51,30 +51,6 @@ const Home = ({navigation}) => {
       justifyContent: 'center',
       }}>
       <View style={styles.container}>
-<<<<<<< Updated upstream
-        <Text style={styles.textStyle}>
-          Please insert your Name
-        </Text>
-        <TextInput
-          value={userName}
-          onChangeText={(username) => setUserName(username)}
-          style={styles.inputStyle}
-          color = 'black'
-        />
-        <Button
-          title="Play"
-          //Button Title
-          color = '#f194ff'
-          onPress={() =>
-            navigation.navigate('SecondPage', {
-              paramKey: userName,
-            })
-          }
-        />
-      </View>
-      <Text style={{textAlign: 'center', color: 'grey'}}>
-        Don’t Guess
-=======
       <Text style={{ fontSize: 33, fontFamily: 'Times New Roman', color : "#663399",}}>
         Sudoku
       </Text>
@@ -111,7 +87,6 @@ const Home = ({navigation}) => {
     <View style={styles.or_dt} >
       <Text style={styles.or_data} >
       ------------------------------  or -------------------------------
->>>>>>> Stashed changes
       </Text>
     </View>
     <TouchableOpacity style={styles.creat_acc} onPress={()=>console.log("ok")}>

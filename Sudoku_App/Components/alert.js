@@ -51,8 +51,6 @@ const Alert_page = (props) => {
 var styles = StyleSheet.create({
   
     container: {
-    
-    
        alignItems : 'center',
        borderColor : 'grey',
        borderWidth : 1,

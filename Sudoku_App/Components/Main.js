@@ -62,7 +62,7 @@ const App_data = ({route,navigation}) => {
                </View>
              ),
       })
-    },1000);
+    },800);
 }
 
 

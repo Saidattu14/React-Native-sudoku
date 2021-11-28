@@ -105,7 +105,7 @@ const Timer_function = () => {
      const dt = Timer_function();
      setTime_details(dt);
      setVal(true);
-   },1000);
+   },900);
    return t1;
    }
   },[val]);

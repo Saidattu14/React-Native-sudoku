@@ -18,7 +18,7 @@ import { assertUnionTypeAnnotation } from '@babel/types';
 //This screen allows user to create a username to play to sudoku.
 const Touch_pad = () => {
   const [{current_value}, dispatch] = useDataLayerValue();
-  const values = [1,2,3,4,5,6,7,8,9]
+  
   const Value_Change = (index) => {
     dispatch({
       type: "SET_Value",
@@ -102,9 +102,7 @@ const Touch_pad = () => {
 var styles = StyleSheet.create({
   
     container: {
-       flexDirection : 'row',
-       alignItems : 'center',
-       height : 50,
+      
     },
     text_main : {
       height : 50,

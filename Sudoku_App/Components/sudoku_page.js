@@ -94,7 +94,6 @@ const App_data = (props) => {
     tableData[current_index.x][current_index.y] = index;
     const text = index
     setInput(index)
-    setTable_data(tableData);
     }
   }
   const Dataloading = (level) => {
@@ -236,21 +235,21 @@ const Touch_data = (index,cellIndex) => {
      setInput(text)
      setTable_data(tableData);
      var count = 0;
-    for(let i = 0; i<=8;i++)
-    {
-      for(let j = 0; j<=8;j ++)
-      {
-       if(tableData[i][j] !== result[i][j])
-       {
-        count = count + 1;
-        break;
-       }
-      }
-      if(count >= 1)
-      {
-        break;
-      }
-    }
+    // for(let i = 0; i<=8;i++)
+    // {
+    //   for(let j = 0; j<=8;j ++)
+    //   {
+    //    if(tableData[i][j] !== result[i][j])
+    //    {
+    //     count = count + 1;
+    //     break;
+    //    }
+    //   }
+    //   if(count >= 1)
+    //   {
+    //     break;
+    //   }
+    // }
     if(count === 0)
     {
        setTimeout(() => {
@@ -277,8 +276,6 @@ const Touch_data = (index,cellIndex) => {
   useEffect(()=> {
       Dataloading(level);
       BackGround_colors();
-    
-   
   },[]);
 
   

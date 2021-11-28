@@ -22,7 +22,7 @@ import App_data from './sudoku_page';
 const Side_page = ({navigation}) => {
   
   const [{show_nav_bar}, dispatch] = useDataLayerValue();
-  const [display_nav, setDisplayNav] = useState("none");
+  const [display_nav, setDisplayNav] = useState("-70%");
   const [display_profile, setDisplayPro] = useState("none");
   const [val,setVal] = useState(false);
   const [position_nav, setPositionNav] = useState("relative");
@@ -103,14 +103,8 @@ const Side_page = ({navigation}) => {
  const side_bar = () => {
   
   
-      const display = "flex";
-      setDisplayNav(display);
-      const position = "absolute";
-      setPositionNav(position)
-      const a = 10
-      setA(a)
-      console.log(a)
-    
+    const display = "30%";
+    setDisplayNav(display);
  }
  const side_bar_right = () => {
   
@@ -123,23 +117,10 @@ const Side_page = ({navigation}) => {
 }
  const s = () => {
   
-  console.log("helllll")
-  const display = "none";
-  setDisplayNav(display);
-  const position = "relative";
-  setPositionNav(position)
-  const display1 = "none";
-  setDisplayPro(display);
-  const position1 = "relative";
-  setPositionPro(position)
 
-}
-const Continue = () => {
-  const display = "none";
-  setDisplay(display);
-  const position = "relative";
-  setPosition(position)
- 
+  const display = "-100%";
+  setDisplayNav(display);
+
 }
 
 const Restart = () => {
@@ -151,19 +132,11 @@ const Restart = () => {
   Header_data();
   const backAction = () => {
     
-    if(display_nav == "none" && position_nav == "relative")
-    { 
-      const display = "none";
+    
+      const display = "-100%";
       setDisplayNav(display);
-      const position = "relative";
-      setPositionNav(position)
-     
-      return false
-    }
-    else
-    { console.log("hello")
       return true
-    }
+    
     // Alert.alert("Hold on!", "Are you sure you want to go back?", [
     //   {
     //     text: "Cancel",
@@ -221,21 +194,17 @@ const Restart = () => {
       >
       <Alert_page navigation = {navigation}></Alert_page>
       
-      
-     
-      
-      
-
      </TouchableOpacity>
     
     <View  style={{
       
       height: '120%',
       width : '70%',
-      display : display_nav,
+      display : 'flex',
       backgroundColor : "#6A5ACD",
       top: -60,
-      position : position_nav
+      position : 'absolute',
+      right : display_nav
       } }>
      
         <SafeAreaView
@@ -258,17 +227,17 @@ const Restart = () => {
         </Text> 
         </SafeAreaView>
     <SafeAreaView>
-      <TouchableOpacity
+      <Text
       style={ styles.side_nav}
       onPress={() => navigation.navigate('Main_page')}>
         <Side_page_names
         title = {'Continue'}
         title_data = {'To continue previous game'}
         ></Side_page_names>
-      </TouchableOpacity>
+      </Text>
     </SafeAreaView>
     <SafeAreaView>
-    <TouchableOpacity 
+    <Text
      style={styles.side_nav }
      onPress={() =>  navigation.navigate('SecondPage')}> 
         {/* <SafeAreaView
@@ -285,12 +254,12 @@ const Restart = () => {
       title = {'Start New game'}
       title_data = {'To start new game '}>
       </Side_page_names>
-    </TouchableOpacity>
+    </Text>
     </SafeAreaView>
     <SafeAreaView>
-      <TouchableOpacity 
+      <Text
       style={styles.side_nav}
-      onPress={() => s()}> 
+      onPress={() => setDisplayNav("30%")}> 
           {/* <SafeAreaView
           style={{
             width :45,
@@ -305,12 +274,12 @@ const Restart = () => {
           <Side_page_names
           title = {'Restart'}
           title_data = {'Restarting the game'}></Side_page_names>
-      </TouchableOpacity>
+      </Text>
     </SafeAreaView>
     <SafeAreaView>
-      <TouchableOpacity 
+      <Text 
       style={styles.side_nav }
-      onPress={() => s()}> 
+      onPress={() => setDisplayNav("-70%")}> 
           {/* <SafeAreaView
           style={{
             width :45,
@@ -326,10 +295,10 @@ const Restart = () => {
           title = {'Settings'}
         title_data = {'Used to change play method'}
           ></Side_page_names>
-      </TouchableOpacity>
+      </Text>
     </SafeAreaView>
     <SafeAreaView>
-    <TouchableOpacity 
+    <Text
     style={styles.side_nav }
      onPress={() =>  navigation.navigate('Main_page')}> 
       {/* <SafeAreaView
@@ -345,7 +314,7 @@ const Restart = () => {
     </SafeAreaView> */}
     <Side_page_names title = {'Main Menu'}
         title_data = {'Back to the Menu'}></Side_page_names>
-    </TouchableOpacity>
+    </Text>
     </SafeAreaView>
     </View>
    

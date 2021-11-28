@@ -46,8 +46,6 @@ const Side_page_names = (props) => {
       </LottieView>
     </SafeAreaView>
     </SafeAreaView>
-    
-    
   );
 };
 var styles = StyleSheet.create({
