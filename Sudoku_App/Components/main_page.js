@@ -16,7 +16,7 @@ const Main_page = ({navigation}) => {
   const [Username, setUserName] = useState('');
   const [Password, setPassword] = useState('');
   const [show_password, setShowPassword] = useState(true);
-  const [{ user, token, playlists, user_play_list_tracks, }, dispatch] = useDataLayerValue()
+  const [{ user, token}, dispatch] = useDataLayerValue()
  
   return (
     <SafeAreaView style={{

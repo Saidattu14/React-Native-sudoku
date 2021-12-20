@@ -96,10 +96,6 @@ const Home = ({navigation}) => {
     </TouchableOpacity>
    
     </View>
-    
-   
-   
-   
     {/* <View style={styles.button}>
     <Button
     

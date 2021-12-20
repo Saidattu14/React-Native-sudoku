@@ -23,16 +23,12 @@ const Side_page = ({navigation}) => {
   
   const [{show_nav_bar}, dispatch] = useDataLayerValue();
   const [display_nav, setDisplayNav] = useState("-70%");
-  const [display_profile, setDisplayPro] = useState("none");
   const [val,setVal] = useState(false);
-  const [position_nav, setPositionNav] = useState("relative");
-  const [position_profile, setPositionPro] = useState("relative");
   const [a,setA] = useState(1);
   const Header_data = () => {
   navigation.setOptions({
     headerRight: () => (
       <TouchableOpacity onPress = {() => side_bar_right()}style = {{
-      
         width : 100,
         height : 40,
         paddingLeft : 50,
@@ -75,46 +71,14 @@ const Side_page = ({navigation}) => {
          ),
   });
 }
-  // if(props.show == "none" && props.position == "relative")
-  // {
-  //   if(display == "none" && position == "relative")
-  //   {
-
-  //   }
-  //   else
-  //   {
-  //     const display = "none";
-  //     setDisplay(display);
-  //     const position = "relative";
-  //     setPosition(position)
-  //   }
-  // }
-  // if(props.show == "flex" && props.position == "absolute")
-  // {
-  //   if(display == "none" && position == "relative")
-  //   {
-  //     const display = "flex";
-  //     setDisplay(display);
-  //     const position = "absolute";
-  //     setPosition(position)
-  //   }
-  // }
   
  const side_bar = () => {
   
   
-    const display = "30%";
-    setDisplayNav(display);
+    const display_nav = "30%";
+    setDisplayNav(display_nav);
  }
- const side_bar_right = () => {
-  
-  
-  const display = "flex";
-  setDisplayPro(display);
-  const position = "absolute";
-  setPositionPro(position)
-
-}
+ 
  const s = () => {
   
 
@@ -126,39 +90,49 @@ const Side_page = ({navigation}) => {
 const Restart = () => {
 
 }
+const value = () => {
+  let v1 = display_nav;
+  return v1;
+}
 
  useEffect(()=> {
  
   Header_data();
   const backAction = () => {
-    
-    
-      const display = "-100%";
-      setDisplayNav(display);
-      return true
-    
-    // Alert.alert("Hold on!", "Are you sure you want to go back?", [
-    //   {
-    //     text: "Cancel",
-    //     onPress: () => null,
-    //     style: "cancel"
-    //   },
-    //   { text: "YES", onPress: () => console.log("ok")}
-    // ]);
-    
+       let res = value();
+       if(res == '30%')
+       {
+         const dis = '-70%';
+         setDisplayNav(dis);
+         return true;
+       }
+       else
+       {
+        Alert.alert("Hold on!", "Are you sure you want to go back?", [
+          {
+            text: "Cancel",
+            onPress: () => null,
+            style: "cancel"
+          },
+          { 
+            text: "YES", onPress: () => console.log("yes") }
+          ]);
+       }
+       return true
+       
   };
-
   const backHandler = BackHandler.addEventListener(
     "hardwareBackPress",
     backAction
   );
+  
  return function cleanup()
  {
 
-   backHandler.remove();
+  BackHandler.removeEventListener("hardwareBackPress", backAction);
  }
   
-},[]);
+},[display_nav]);
 
   return (
     <SafeAreaView style={{
@@ -184,12 +158,9 @@ const Restart = () => {
      <TouchableOpacity 
     
      style={{
-      display : display_profile,
-      position : position_profile,
       justifyContent : 'center',
       left : '30%',
       top:  '20%',
-
       } }
       >
       <Alert_page navigation = {navigation}></Alert_page>
@@ -206,7 +177,6 @@ const Restart = () => {
       position : 'absolute',
       right : display_nav
       } }>
-     
         <SafeAreaView
         style={{
           width :'100%',
@@ -240,16 +210,6 @@ const Restart = () => {
     <Text
      style={styles.side_nav }
      onPress={() =>  navigation.navigate('SecondPage')}> 
-        {/* <SafeAreaView
-        style={{
-          width :45,
-          height : 45,
-          }}>
-          <LottieView
-            source={require('../Assets/start.json')}
-            width = {45} height = {45} autoPlay loop>
-          </LottieView>
-      </SafeAreaView> */}
       <Side_page_names 
       title = {'Start New game'}
       title_data = {'To start new game '}>
@@ -260,17 +220,6 @@ const Restart = () => {
       <Text
       style={styles.side_nav}
       onPress={() => setDisplayNav("30%")}> 
-          {/* <SafeAreaView
-          style={{
-            width :45,
-            height : 45,
-            }}
-          >
-            <LottieView
-              source={require('../Assets/restart.json')}
-              width = {37} height = {37} autoPlay loop>
-              </LottieView>
-          </SafeAreaView> */}
           <Side_page_names
           title = {'Restart'}
           title_data = {'Restarting the game'}></Side_page_names>
@@ -280,17 +229,6 @@ const Restart = () => {
       <Text 
       style={styles.side_nav }
       onPress={() => setDisplayNav("-70%")}> 
-          {/* <SafeAreaView
-          style={{
-            width :45,
-            height : 45,
-            }}
-          >
-          <LottieView
-            source={require('../Assets/settings.json')}
-            width = {40} height = {40} autoPlay loop>
-            </LottieView>
-          </SafeAreaView> */}
           <Side_page_names
           title = {'Settings'}
         title_data = {'Used to change play method'}
@@ -301,17 +239,6 @@ const Restart = () => {
     <Text
     style={styles.side_nav }
      onPress={() =>  navigation.navigate('Main_page')}> 
-      {/* <SafeAreaView
-       style={{
-        width :45,
-        height : 45,
-        }}
-      >
-      <LottieView
-          source={require('../Assets/menu_gm.json')}
-          width = {45} height = {45} autoPlay loop>
-          </LottieView>
-    </SafeAreaView> */}
     <Side_page_names title = {'Main Menu'}
         title_data = {'Back to the Menu'}></Side_page_names>
     </Text>
