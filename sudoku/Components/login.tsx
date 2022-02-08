@@ -58,8 +58,8 @@ const Login = ({navigation}) => {
  
   const submit_request = async(UserName : String,Password : String) => {
     let data = {
-      username : "saidattu",
-      password : "SaiDat$13",
+      username : UserName,
+      password : Password,
     }
     
     if(allow == true)

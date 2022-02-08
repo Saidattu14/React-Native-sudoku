@@ -11,9 +11,10 @@ import {
   Image
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-import {DataContext} from '../reducers/datalayer'
-
-const Alert = (props) => {
+import {DataContext} from '../reducers/datalayer';
+import { CommonActions } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+const Alert = ({navigation}) => {
   const { state, dispatch } = React.useContext(DataContext);
   const cancel = () => {
     dispatch({
@@ -21,6 +22,33 @@ const Alert = (props) => {
       cancel : 'none',
     })
   }
+  const logout = async() => {
+    await AsyncStorage.removeItem('token');
+    let myPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [
+              { name: "Login" },
+            ],
+          })
+        ));
+      }, 100);
+    });
+  }
+  const profile = async() => {
+    dispatch({
+      type: 'Setcancel',
+      cancel : 'none',
+    })
+    let myPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(navigation.navigate('Mystats'));
+      }, 100);
+    });
+  }
+
   return (
     <SafeAreaView style={{
       alignItems : 'center',
@@ -28,12 +56,12 @@ const Alert = (props) => {
       display : state.cancel
       }} >
       <View style = {styles.container}>
-      <TouchableOpacity style = {styles.text_profile_ctr}>
+      <TouchableOpacity style = {styles.text_profile_ctr} onPress={() => profile()}>
          <Text style = {styles.text_profile}>
           Profile
          </Text>
         </TouchableOpacity>
-      <TouchableOpacity style = {styles.text_logout_ctr}  onPress={() => props.navigation.navigate('FirstPage')}>
+      <TouchableOpacity style = {styles.text_logout_ctr}  onPress={() => logout()}>
          <Text style = {styles.text_logout}>
           Log out
          </Text>

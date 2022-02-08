@@ -154,6 +154,7 @@ const Value_Change = async(index : number) => {
      if(ok == true)
     {
       await AsyncStorage.removeItem('Continue');
+      
       navigation.navigate('Success', {})
     }
     }

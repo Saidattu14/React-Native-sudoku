@@ -103,7 +103,7 @@ const App1 = ({navigation,route}) => {
         <Sudoku navigation = {navigation} level= {level}></Sudoku>
         <View style = {{
           top : '-54%'}} >
-        <Alert_page ></Alert_page>
+        <Alert_page navigation = {navigation}></Alert_page>
         </View>
         </View>
         </View>
